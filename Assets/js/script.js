@@ -1,3 +1,11 @@
+// Display date on screen
+function dayOfTheWeek(){
+    let day = moment().format('dddd');
+    $('#currentDay').text(day);
+    console.log(day);
+};
+dayOfTheWeek();
+// query selector to make function call on save btn
 $(".save-btn").on("click",function() {
     // gets the id from the button that was cliked
     const time = $(this).attr('id');
