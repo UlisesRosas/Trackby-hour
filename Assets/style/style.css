@@ -69,3 +69,16 @@ body {
   font-size: 20px;
   transition: all .3s ease-in-out;
 }
+
+.in-the-past {
+  background-color: gray;
+}
+
+.in-the-present {
+  background-color: #ff6961;
+}
+
+.in-the-future {
+  background-color: rgb(56, 251, 56);
+}
+
