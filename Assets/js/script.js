@@ -1,5 +1,4 @@
 const textEl = $('.description');
-console.log(textEl);
 
 // Display date on screen
 function dayOfTheWeek(){
@@ -20,30 +19,31 @@ $(".save-btn").on("click",function() {
     localStorage.setItem(time, value)
 });
 
-// will most likely need to put an if statement to deal with the past, present, future
-// collor situation and a momentsjs method to compare task time vs current time
 // added persistant data to each time slot
 for(let i = 9; i <= 17; i++) {
     // retrievs data from local storage for each slot
     $(`#${i}`).siblings('.description').val(localStorage.getItem(`${i}`));
-    
+   
+    // store current hour in variable
     let currentHour = moment().format('h');
+    // turn string in to an actual number to compare to
     currentHour = parseInt(currentHour);
-    // $(textEl).removeClass('in-the-past in-the-present in-the-future')
-     let textIndex = textEl[i - 9];
+    
+    // offset index by nine and store in variable
+    let textIndex = textEl[i - 9];
+    
+    // current hour is greater than current index
     if (currentHour > i) {
-        console.log('gray');
-         console.log(textIndex);
-        // .addClass(".in-the-past");
+        //add class to text area
         textIndex.classList.add("in-the-past");
-
     }
+    // current hour is equal to the text area
     else if (currentHour === i) {
-        console.log('red');
+        // add clas to the text
         textIndex.classList.add("in-the-present");
 
     }else {
-        console.log("green");
+        // If any other condition add class to the text area
         textIndex.classList.add("in-the-future");
         
     }
